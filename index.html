@@ -25,7 +25,6 @@
       border: none;
       padding: 1em 2em;
       font-size: 1.2em;
-      margin-top: 1em;
       border-radius: 10px;
       cursor: pointer;
     }
@@ -48,6 +47,9 @@
     @keyframes float {
       0% { transform: translateY(100vh); opacity: 1; }
       100% { transform: translateY(-100vh); opacity: 0; }
+    }
+    .hidden-content {
+      display: none;
     }
     .memory-box {
       margin-top: 2em;
@@ -109,9 +111,12 @@
       to { transform: translateY(-10px); }
     }
     .pet-message {
-      margin-top: 1em;
+      margin-top: 10px;
       font-size: 1.1em;
       color: #ff1493;
+    }
+    .subtitle {
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -119,54 +124,58 @@
   <h1>Feliz Dia dos Namorados 💖</h1>
   <p>Ekaterina, esse é um pequeno presente do seu príncipe só pra te ver sorrir.</p>
 
-  <button class="button" onclick="showHearts()">Clique aqui 💕</button>
+  <button class="button" id="start" onclick="showAll()">Começar 💕</button>
   <div class="hearts" id="hearts"></div>
 
-  <p class="subtitle">Clica nas florzinhas 🌸 para ver minhas mensagens pra você!</p>
+  <div id="content" class="hidden-content">
+    <p class="subtitle">Toca nas florzinhas 🌸 para ver minhas mensagens pra você!</p>
 
-  <div class="flower" onclick="showMessage(0)">🌸</div>
-  <div class="flower" onclick="showMessage(1)">🌼</div>
-  <div class="flower" onclick="showMessage(2)">🌷</div>
-  <div class="flower" onclick="showMessage(3)">🌻</div>
+    <div class="flower" onclick="showMessage(0)">🌸</div>
+    <div class="flower" onclick="showMessage(1)">🌼</div>
+    <div class="flower" onclick="showMessage(2)">🌷</div>
+    <div class="flower" onclick="showMessage(3)">🌹</div>
 
-  <div class="message" id="msg0">O meu tempo com você é mais precioso que tudo 💌</div>
-  <div class="message" id="msg1">Toda vez que você fica bobinha, meu mundo fica melhor 😍</div>
-  <div class="message" id="msg2">Você é a minha princesa mimada e eu amo cuidar de você 💖</div>
-  <div class="message" id="msg3">Ainda quero passar muuuitos dias dos namorados com você 💞</div>
+    <div class="message" id="msg0">O meu tempo com você é mais precioso que tudo 💌</div>
+    <div class="message" id="msg1">Toda vez que você fica bobinha, meu mundo fica melhor 😍</div>
+    <div class="message" id="msg2">Você é a minha princesa mimada e eu amo cuidar de você 💖</div>
+    <div class="message" id="msg3">Ainda quero passar muuuitos dias dos namorados com você 💞</div>
 
-  <div class="final-message" id="finalMsg">
-    Você é a mulher dos meus sonhos ❤️<br>
-    Se eu pudesse te abraçar agora, não soltava mais 💞<br>
-    Feliz Dia dos Namorados, minha princesinha! 💘
+    <div class="final-message" id="finalMsg">
+      Você é a mulher dos meus sonhos ❤️<br>
+      Se eu pudesse te abraçar agora, não soltava mais 💞<br>
+      Feliz Dia dos Namorados, minha princesinha! 💘
+    </div>
+
+    <div class="memory-box">
+      <h2>✨ Nossas Memórias ✨</h2>
+      <p>Prints e coisinhas que fizemos juntinhos:</p>
+      <img src="https://imgur.com/af7J2l4.jpg" alt="festinha" height=100>
+      <img src="https://imgur.com/JVH6m9s.jpg" alt="amorzinho" height=100>
+      <p>👑 "i’m his spoiled princess (｡ > ω < ｡)" </p>
+    </div>
+
+    <img src="https://imgur.com/QxH51Lk.gif" alt="aaaaaa" style="margin-top: 3em;"> <br>
+
+    <div class="pet" onclick="petCat()">🐈</div>
+    <div class="pet-message" id="petMessage">Faça carinho no Nenis :3</div>
+
+    <div id="catImageContainer" style="display: none; margin-top: 1em;">
+      <img src="https://imgur.com/0UYRgHR.gif" alt="beijinho">
+    </div>
+
+    <div class="music">
+      <audio controls autoplay>
+        <source src="https://docs.google.com/uc?export=download&id=1jPZGqv-mzRHdW302rKJu0R76lKB1_oZL.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+      </audio>
+      <p>🎶 Uma musiquinha enquanto você lê isso.</p>
+    </div>
+
+    <div class="counter" id="daysTogether"></div>
+    <div class="footer">Com carinho, do seu príncipe programador que adora te mimar :3 💻❤️<br> 
+      p.s.: Olha minha tag no discord agora
+    </div>
   </div>
-
-  <div class="memory-box">
-    <h2>✨ Nossas Memórias ✨</h2>
-    <p>Prints e coisinhas que me fazem lembrar você:</p>
-    <img src="https://imgur.com/af7J2l4.jpg" alt="festinha" height=100>
-    <img src="https://imgur.com/JVH6m9s.jpg" alt="amorzinho" height=100>
-    <p>👑 "i’m his spoiled princess (｡ > ω < ｡)" </p>
-  </div>
-
-  <div class="music">
-    <audio controls>
-      <source src="https://your-audio-link.com/music.mp3" type="audio/mpeg">
-      Seu navegador não suporta áudio.
-    </audio>
-    <p>🎶 Uma musiquinha enquanto você lê isso.</p>
-  </div>
-
-  <img src="https://imgur.com/QxH51Lk.gif" alt="aaaaaa"> <br>
-
-  <div class="pet" onclick="petCat()">🐈</div>
-  <div class="pet-message" id="petMessage">Faça carinho no Nenis :3</div>
-
-  <div id="catImageContainer" style="display: none; margin-top: 1em;">
-    <img src="https://imgur.com/0UYRgHR.gif" alt="beijinho">
-  </div>
-
-  <div class="counter" id="daysTogether"></div>
-  <div class="footer">Com carinho, do seu príncipe programador que adora te mimar :3 💻❤️</div>
 
   <script>
     let flowersClicked = [false, false, false, false];
@@ -194,6 +203,14 @@
         heartsContainer.appendChild(heart);
         setTimeout(() => heart.remove(), 4000);
       }
+    }
+
+    function showAll() {
+      showHearts();
+      document.getElementById("content").style.display = "block";
+      
+      const msg = document.getElementById("start");
+      msg.innerText = "💕 Clique para mais Coraçõeszinhos 💕";
     }
 
     function calculateDaysTogether() {
