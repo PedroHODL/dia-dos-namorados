@@ -9,7 +9,10 @@
 
     body {
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to bottom, #ffe6f0, #ffe);
+      background: linear-gradient(to bottom, #ffe6f0, #ffffee);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
       text-align: center;
       padding: 2em;
       color: #444;
@@ -122,9 +125,10 @@
 </head>
 <body>
   <h1>Feliz Dia dos Namorados 💖</h1>
-  <p>Ekaterina, esse é um pequeno presente do seu príncipe só pra te ver sorrir.</p>
+  <p>Ekaterina, esse é um pequeno presente do seu princípe só pra te ver sorrir.</p>
+  <p id="soundwarning">deixei uma música de fundo, aumenta o volume ok? :3 </p>
 
-  <button class="button" id="start" onclick="showAll()">Começar 💕</button>
+  <button class="button" id="start" onclick="showAll()">Abrir Presente 💕</button>
   <div class="hearts" id="hearts"></div>
 
   <div id="content" class="hidden-content">
@@ -168,11 +172,11 @@
         <source src="https://docs.google.com/uc?export=download&id=1jPZGqv-mzRHdW302rKJu0R76lKB1_oZL.mp3" type="audio/mpeg">
         Seu navegador não suporta áudio.
       </audio>
-      <p>🎶 Uma musiquinha enquanto você lê isso.</p>
+      <p>🎶 Deixei essa musiquinha enquanto você lia isso.</p>
     </div>
 
     <div class="counter" id="daysTogether"></div>
-    <div class="footer">Com carinho, do seu príncipe programador que adora te mimar :3 💻❤️<br> 
+    <div class="footer">Com carinho, do seu princípe programador que adora te mimar :3 💻❤️<br> 
       p.s.: Olha minha tag no discord agora
     </div>
   </div>
@@ -194,20 +198,21 @@
 
     function showHearts() {
       const heartsContainer = document.getElementById('hearts');
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 60; i++) {
         const heart = document.createElement('div');
         heart.className = 'heart';
         heart.innerText = "❤️";
         heart.style.left = Math.random() * 100 + 'vw';
         heart.style.animationDuration = (2 + Math.random() * 3) + 's';
         heartsContainer.appendChild(heart);
-        setTimeout(() => heart.remove(), 4000);
+        setTimeout(() => heart.remove(), 10000);
       }
     }
 
     function showAll() {
       showHearts();
       document.getElementById("content").style.display = "block";
+      document.getElementById("soundwarning").style.display = "none";
       
       const msg = document.getElementById("start");
       msg.innerText = "💕 Clique para mais Coraçõeszinhos 💕";
@@ -218,7 +223,7 @@
       const now = new Date();
       const diffTime = Math.abs(now - startDate);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      document.getElementById("daysTogether").innerText = `📅 Já fazem ${diffDays} dias desde que você entrou no meu coração.`;
+      document.getElementById("daysTogether").innerText = `🗓 Já fazem ${diffDays} dias desde que você entrou no meu coração.`;
     }
 
     function petCat() {
