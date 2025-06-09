@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Dia dos Namorados</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #ffe);
+      text-align: center;
+      padding: 2em;
+      color: #444;
+    }
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      color: #d63384;
+      font-size: 2.8em;
+    }
+    .button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 1em 2em;
+      font-size: 1.2em;
+      margin-top: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 10;
+    }
+    .heart {
+      position: absolute;
+      color: #ff4da6;
+      animation: float 4s ease-in infinite;
+      font-size: 2em;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+    .memory-box {
+      margin-top: 2em;
+      border: 2px dashed pink;
+      padding: 1em;
+      border-radius: 1em;
+      background: #fff0f5;
+    }
+    .memory-box img {
+      max-width: 100%;
+      width: 750px;
+      border-radius: 10px;
+      margin: 0.5em;
+      height: auto;
+    }
+    .music {
+      margin-top: 2em;
+    }
+    .flower {
+      display: inline-block;
+      margin: 10px;
+      cursor: pointer;
+      font-size: 3em;
+      transition: transform 0.2s ease;
+    }
+    .flower:hover {
+      transform: scale(1.2);
+    }
+    .message {
+      display: none;
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #d63384;
+    }
+    .final-message {
+      display: none;
+      margin-top: 2em;
+      font-size: 1.2em;
+      color: #b03060;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #8b008b;
+    }
+    .counter {
+      font-size: 1.2em;
+      margin-top: 2em;
+      color: #c71585;
+    }
+    .pet {
+      margin-top: 20px;
+      font-size: 2.5em;
+      cursor: pointer;
+      animation: bounce 1s infinite alternate;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+    .pet-message {
+      margin-top: 1em;
+      font-size: 1.1em;
+      color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+  <h1>Feliz Dia dos Namorados 💖</h1>
+  <p>Ekaterina, esse é um pequeno presente do seu príncipe só pra te ver sorrir.</p>
+
+  <button class="button" onclick="showHearts()">Clique aqui 💕</button>
+  <div class="hearts" id="hearts"></div>
+
+  <p class="subtitle">Clica nas florzinhas 🌸 para ver minhas mensagens pra você!</p>
+
+  <div class="flower" onclick="showMessage(0)">🌸</div>
+  <div class="flower" onclick="showMessage(1)">🌼</div>
+  <div class="flower" onclick="showMessage(2)">🌷</div>
+  <div class="flower" onclick="showMessage(3)">🌻</div>
+
+  <div class="message" id="msg0">O meu tempo com você é mais precioso que tudo 💌</div>
+  <div class="message" id="msg1">Toda vez que você fica bobinha, meu mundo fica melhor 😍</div>
+  <div class="message" id="msg2">Você é a minha princesa mimada e eu amo cuidar de você 💖</div>
+  <div class="message" id="msg3">Ainda quero passar muuuitos dias dos namorados com você 💞</div>
+
+  <div class="final-message" id="finalMsg">
+    Você é a mulher dos meus sonhos ❤️<br>
+    Se eu pudesse te abraçar agora, não soltava mais 💞<br>
+    Feliz Dia dos Namorados, minha princesinha! 💘
+  </div>
+
+  <div class="memory-box">
+    <h2>✨ Nossas Memórias ✨</h2>
+    <p>Prints e coisinhas que me fazem lembrar você:</p>
+    <img src="https://imgur.com/af7J2l4.jpg" alt="festinha" height=100>
+    <img src="https://imgur.com/JVH6m9s.jpg" alt="amorzinho" height=100>
+    <p>👑 "i’m his spoiled princess (｡ > ω < ｡)" </p>
+  </div>
+
+  <div class="music">
+    <audio controls>
+      <source src="https://your-audio-link.com/music.mp3" type="audio/mpeg">
+      Seu navegador não suporta áudio.
+    </audio>
+    <p>🎶 Uma musiquinha enquanto você lê isso.</p>
+  </div>
+
+  <img src="https://imgur.com/QxH51Lk.gif" alt="aaaaaa"> <br>
+
+  <div class="pet" onclick="petCat()">🐈</div>
+  <div class="pet-message" id="petMessage">Faça carinho no Nenis :3</div>
+
+  <div id="catImageContainer" style="display: none; margin-top: 1em;">
+    <img src="https://imgur.com/0UYRgHR.gif" alt="beijinho">
+  </div>
+
+  <div class="counter" id="daysTogether"></div>
+  <div class="footer">Com carinho, do seu príncipe programador que adora te mimar :3 💻❤️</div>
+
+  <script>
+    let flowersClicked = [false, false, false, false];
+
+    function showMessage(index) {
+      const msg = document.getElementById("msg" + index);
+      if (!flowersClicked[index]) {
+        msg.style.display = "block";
+        flowersClicked[index] = true;
+
+        if (flowersClicked.every(Boolean)) {
+          document.getElementById("finalMsg").style.display = "block";
+        }
+      }
+    }
+
+    function showHearts() {
+      const heartsContainer = document.getElementById('hearts');
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerText = "❤️";
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (2 + Math.random() * 3) + 's';
+        heartsContainer.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+      }
+    }
+
+    function calculateDaysTogether() {
+      const startDate = new Date("2025-04-14");
+      const now = new Date();
+      const diffTime = Math.abs(now - startDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      document.getElementById("daysTogether").innerText = `📅 Já fazem ${diffDays} dias desde que você entrou no meu coração.`;
+    }
+
+    function petCat() {
+      const msg = document.getElementById("petMessage");
+      msg.innerText = "Miau~ agora você tem que me dar um beijinho! 😽";
+
+      const catImage = document.getElementById("catImageContainer");
+      catImage.style.display = "block";
+    }
+
+    calculateDaysTogether();
+  </script>
+</body>
+</html>
