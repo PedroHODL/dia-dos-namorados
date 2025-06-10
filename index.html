@@ -126,10 +126,11 @@
 <body>
   <h1>Feliz Dia dos Namorados 💖</h1>
   <p>Ekaterina, esse é um pequeno presente do seu princípe só pra te ver sorrir.</p>
-  <p id="soundwarning">deixei uma música de fundo, aumenta o volume ok? :3 </p>
-
+  
   <button class="button" id="start" onclick="showAll()">Abrir Presente 💕</button>
   <div class="hearts" id="hearts"></div>
+
+  <p id="soundwarning" class="footer">deixei uma música de fundo, aumenta o volume ok? :3 </p>
 
   <div id="content" class="hidden-content">
     <p class="subtitle">Toca nas florzinhas 🌸 para ver minhas mensagens pra você!</p>
@@ -168,8 +169,8 @@
     </div>
 
     <div class="music">
-      <audio controls autoplay>
-        <source src="https://docs.google.com/uc?export=download&id=1jPZGqv-mzRHdW302rKJu0R76lKB1_oZL.mp3" type="audio/mpeg">
+      <audio id="bgMusic" controls>
+        <source src="perfect.mp3" type="audio/mpeg">
         Seu navegador não suporta áudio.
       </audio>
       <p>🎶 Deixei essa musiquinha enquanto você lia isso.</p>
@@ -216,6 +217,13 @@
       
       const msg = document.getElementById("start");
       msg.innerText = "💕 Clique para mais Coraçõeszinhos 💕";
+
+      const music = document.getElementById("bgMusic");
+      if (music) {
+        music.play().catch(error => {
+          console.log("Autoplay bloqueado, interação adicional necessária.", error);
+        });
+      }
     }
 
     function calculateDaysTogether() {
