@@ -121,6 +121,14 @@
     .subtitle {
       margin-top: 30px;
     }
+    @keyframes pop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.4); }
+      100% { transform: scale(1); }
+    }
+    .flower.clicked {
+      animation: pop 0.4s ease;
+    }
   </style>
 </head>
 <body>
@@ -195,6 +203,9 @@
           document.getElementById("finalMsg").style.display = "block";
         }
       }
+      const flowerElems = document.getElementsByClassName("flower");
+      flowerElems[index].classList.add("clicked");
+      setTimeout(() => flowerElems[index].classList.remove("clicked"), 400);
     }
 
     function showHearts() {
@@ -219,6 +230,7 @@
       msg.innerText = "💕 Clique para mais Coraçõeszinhos 💕";
 
       const music = document.getElementById("bgMusic");
+      music.volume = 0.2;
       if (music) {
         music.play().catch(error => {
           console.log("Autoplay bloqueado, interação adicional necessária.", error);
